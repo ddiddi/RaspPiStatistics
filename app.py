@@ -2,6 +2,7 @@ from flask import Flask
 from datetime import datetime
 from flask import render_template
 app = Flask(__name__)
+counter = 0
 
 @app.route('/')
 def homepage():
@@ -53,6 +54,11 @@ def pie():
     pie_values = values
     return render_template('pie_chart.html', title='Energy Usage', max=17000, set=zip(values, labels, colors))
 
+@app.route('/press')
+def pie_master():
+    global counter
+    counter = counter + 1
+    return str(counter)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
