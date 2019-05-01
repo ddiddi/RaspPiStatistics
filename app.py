@@ -60,5 +60,11 @@ def pie_master():
     counter = counter + 1
     return str(counter)
 
+@app.route('/press0')
+def pie_master():
+    global counter
+    counter = 0
+    return str(counter)
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
